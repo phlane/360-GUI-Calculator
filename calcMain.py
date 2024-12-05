@@ -1,3 +1,5 @@
+from logging import raiseExceptions
+
 import ply.lex as lex
 import ply.yacc as yacc
 
@@ -127,7 +129,7 @@ def p_expression_variable(p):
     p[0] = ('variable',p[1])
 
 def p_error(p):
-    print("Error")
+    raise ValueError('Syntax error')
 
 def p_empty(p):
     '''
@@ -140,7 +142,6 @@ varDict = {}
 
 def clearVars():
     global varDict
-    print("here")
     varDict = {}
 
 def evaluate(p):

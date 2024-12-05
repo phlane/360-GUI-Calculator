@@ -166,8 +166,7 @@ class CalculatorGUI:
             full_entry = self.var_listbox.get(selection)
             expression = full_entry.split('=')[0]
 
-            self.entry.delete(0, tk.END)
-            self.entry.insert(0, expression)
+            self.entry.insert(len(self.entry.get()), expression)
             self.entry.focus_set()
         except IndexError:
             pass
